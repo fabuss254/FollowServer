@@ -8,8 +8,6 @@ const ListOfFollowers = new Set();
 // FUNCTIONS
 
 function Save() {
-    console.log("SAVING !!")
-
     if (!fs.existsSync('followers.json')) fs.writeFileSync('followers.json', JSON.stringify([]));
     fs.writeFileSync('followers.json', JSON.stringify([...ListOfFollowers]));
 }
@@ -51,7 +49,7 @@ setInterval(async () => {
     for (let i = 0; i < NewFollowers.length; i++) {
         const Follower = NewFollowers[i];
         if (!IsFollowing(Follower.id)) {
-            console.log(`New follower: ${Follower.id}`);
+            console.log(`New follower: ${Follower.id} (${Follower.displayName} - @${Follower.name})`);
             ListOfFollowers.add(Follower.id, true);
 
             HasNewFollowers = true;
