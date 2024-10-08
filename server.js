@@ -57,4 +57,4 @@ setInterval(async () => {
     }
 
     if (HasNewFollowers) Save();
-}, 15 * 1000);
+}, 7 * 1000);
