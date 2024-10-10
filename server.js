@@ -85,7 +85,7 @@ app.get('/FollowCheck/:id', (req, res) => {
 });
 
 app.get("/JHOLike", (req, res) => {
-    res.status(200).send(`'{"like":${CurrentLikes},"code":"${GetCurrentLikeMilestone()}"}'`)
+    res.status(200).send(`{"like":${CurrentLikes},"code":"${GetCurrentLikeMilestone()}"}`)
 });
 
 app.listen(3000, () => {
