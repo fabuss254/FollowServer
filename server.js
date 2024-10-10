@@ -27,7 +27,7 @@ function IsFollowing(UserId) {
 
 // RUNNERS
 
-app.get('/:id', (req, res) => {
+app.get('/FollowCheck/:id', (req, res) => {
     const UserIdToCheck = parseInt(req.params.id);
     if (!UserIdToCheck || UserIdToCheck == 0) return res.status(400).send('No user id provided');
     if (UserIdToCheck == NaN) return res.status(400).send('Invalid user id');
