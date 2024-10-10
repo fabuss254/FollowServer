@@ -55,6 +55,14 @@ function GetCurrentLikeMilestone() {
     return Code;
 }
 
+function GetNextLikeMilestone() {
+    for (let i = 0; i < LikeMilestones.length; i++) {
+        const ThisMilestone = LikeMilestones[i];
+        if (CurrentMaxLikes < ThisMilestone[1]) return ThisMilestone[1];
+    }
+    return null;
+}
+
 function Save() {
     if (!fs.existsSync('followers.json')) fs.writeFileSync('followers.json', JSON.stringify([]));
     fs.writeFileSync('followers.json', JSON.stringify([...ListOfFollowers]));
@@ -85,7 +93,7 @@ app.get('/FollowCheck/:id', (req, res) => {
 });
 
 app.get("/JHOLike", (req, res) => {
-    res.status(200).send(`{"like":${CurrentLikes},"code":"${GetCurrentLikeMilestone()}"}`)
+    res.status(200).send(`{"like":${CurrentLikes},"code":"${GetCurrentLikeMilestone()}","next":${GetNextLikeMilestone()}}`);
 });
 
 app.listen(3000, () => {
