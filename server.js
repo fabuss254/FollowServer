@@ -50,7 +50,7 @@ function GetCurrentLikeMilestone() {
     let Code = ""
     for (let i = 0; i < LikeMilestones.length; i++) {
         const ThisMilestone = LikeMilestones[i];
-        if (CurrentMaxLikes > ThisMilestone[1]) Code = ThisMilestone[0];
+        if (CurrentMaxLikes >= ThisMilestone[1]) Code = ThisMilestone[0];
     }
     return Code;
 }
